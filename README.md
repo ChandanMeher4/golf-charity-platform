@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Golf Charity Subscription Platform - MVP Build
 
-## Getting Started
+## ⏱️ Time Constraint Strategy (48 Hours)
+Given the tight deadline, I prioritized establishing:
+- A rock-solid data foundation  
+- Secure authentication  
+- A complete user loop  
 
-First, run the development server:
+Over external integrations that introduce significant edge cases (like Stripe webhooks).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ What I Built (The MVP)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🧱 Architecture
+- **Next.js App Router**
+- **Tailwind CSS**
+- **Shadcn UI**
+- **Supabase** (PostgreSQL + Auth)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### ⚡ Core Feature: Real-time Score Management
+- Implemented the **"Rolling 5 Scores"** logic  
+- Built directly using **Next.js Server Actions**
+- Ensures **data integrity** without requiring background cron jobs  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ❤️ Charity Integration
+- Designed a **relational database schema**
+- Links **user profiles → charities**
+- Supports **custom contribution percentages**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 🎯 Draw System
+- Built a functional **Admin Panel**
+- Safely generates and commits:
+  - Secure
+  - Random  
+  draw results to the database  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 What I Mocked (And How I'd Build It)
+
+### 💳 Subscriptions
+- Currently implemented as a **mock toggle**
+
+**Implementation Plan:**
+- Integrate **Stripe Checkout**
+- Use **webhooks** to listen for:
+  - `customer.subscription.updated`
+- Securely toggle the `is_subscribed` flag in Supabase  
+
+---
+
+### 🧠 Algorithmic Draws
+- Currently uses **random selection**
+
+**Implementation Plan:**
+- Write a **PostgreSQL SQL function** (or Edge Function)
+- Query the `scores` table
+- Aggregate score frequencies
+- Apply a **weighted randomizer**
+- Generate the final 5 numbers  
+
+---

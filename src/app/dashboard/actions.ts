@@ -35,7 +35,6 @@ export async function submitScore(scoreValue: number) {
   return { success: true }
 }
 
-// Add this to the bottom of src/app/dashboard/actions.ts
 
 export async function upgradeSubscription() {
   const supabase = await createClient()

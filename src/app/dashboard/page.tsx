@@ -11,7 +11,7 @@ export default async function Dashboard() {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    redirect("/login"); // Or wherever your auth page is
+    redirect("/login"); 
   }
 
   // 2. Fetch Profile Data

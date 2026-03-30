@@ -23,7 +23,7 @@ export async function signup(formData: FormData) {
     email,
     password,
     options: {
-      data: { full_name: fullName }, // Triggers our SQL function to create the profile
+      data: { full_name: fullName },
     },
   })
 

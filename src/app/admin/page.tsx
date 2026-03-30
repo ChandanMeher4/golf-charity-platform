@@ -5,7 +5,7 @@ import AdminDrawControl from '@/components/AdminDrawControl'
 export default async function AdminDashboard() {
   const supabase = await createClient()
   
-  // 1. Verify Authentication (In a real app, you'd check if user.role === 'admin')
+  // 1. Verify Authentication
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) {
     redirect('/login')

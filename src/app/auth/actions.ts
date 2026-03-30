@@ -12,7 +12,7 @@ export async function signup(formData: FormData) {
     password,
     options: {
       data: {
-        full_name: fullName, // This maps to the trigger we just wrote
+        full_name: fullName,
       },
     },
   })
